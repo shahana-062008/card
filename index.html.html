@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday My Love ❤️</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+min-height:100vh;
+overflow-x:hidden;
+padding:20px;
+display:flex;
+justify-content:center;
+align-items:center;
+font-family:'Segoe UI',sans-serif;
+
+background:linear-gradient(
+-45deg,
+#000000,
+#1a1a1a,
+#ffffff,
+#444444,
+#000000
+);
+
+background-size:400% 400%;
+animation:bgMove 15s ease infinite;
+}
+
+@keyframes bgMove{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+.card{
+width:95%;
+max-width:700px;
+max-height:85vh;
+overflow-y:auto;
+
+padding:40px;
+border-radius:25px;
+
+background:rgba(0,0,0,0.45);
+backdrop-filter:blur(15px);
+
+color:white;
+text-align:center;
+
+border:1px solid rgba(255,255,255,0.3);
+
+box-shadow:
+0 0 30px rgba(255,255,255,.2),
+0 0 60px rgba(0,0,0,.5);
+
+z-index:10;
+}
+
+.heart{
+font-size:75px;
+animation:beat 1s infinite;
+filter:drop-shadow(0 0 20px #ff0055);
+}
+
+@keyframes beat{
+50%{
+transform:scale(1.15);
+}
+}
+
+h1{
+margin:15px 0;
+font-size:2.5rem;
+text-shadow:0 0 10px white;
+}
+
+.countdown{
+font-size:22px;
+font-weight:bold;
+margin:15px 0;
+color:#fff7b2;
+}
+
+p{
+font-size:18px;
+line-height:1.8;
+margin-top:20px;
+}
+
+button{
+width:100%;
+padding:14px;
+margin-top:15px;
+
+border:none;
+border-radius:12px;
+
+background:linear-gradient(
+135deg,
+white,
+#d9d9d9
+);
+
+font-weight:bold;
+font-size:16px;
+cursor:pointer;
+}
+
+button:hover{
+transform:scale(1.03);
+transition:.3s;
+}
+
+.message{
+margin-top:15px;
+color:#fff7b2;
+font-weight:bold;
+}
+
+/* Cake */
+
+.cake{
+font-size:60px;
+margin-top:20px;
+animation:bounce 1.4s infinite;
+}
+
+@keyframes bounce{
+0%,100%{
+transform:translateY(0);
+}
+50%{
+transform:translateY(-12px);
+}
+}
+
+/* Balloons */
+
+.balloon{
+position:absolute;
+bottom:-120px;
+width:70px;
+height:90px;
+border-radius:50%;
+animation:floatBalloon 12s linear infinite;
+}
+
+.balloon::after{
+content:"";
+position:absolute;
+width:2px;
+height:70px;
+background:white;
+left:50%;
+top:90px;
+}
+
+.b1{
+left:10%;
+background:white;
+}
+
+.b2{
+left:30%;
+background:#cfcfcf;
+}
+
+.b3{
+left:70%;
+background:#888;
+}
+
+.b4{
+left:90%;
+background:black;
+border:2px solid white;
+}
+
+@keyframes floatBalloon{
+from{
+transform:translateY(0);
+}
+to{
+transform:translateY(-120vh);
+}
+}
+
+/* Stars */
+
+.star{
+position:fixed;
+width:3px;
+height:3px;
+background:white;
+border-radius:50%;
+animation:twinkle 2s infinite;
+}
+
+@keyframes twinkle{
+50%{
+opacity:.2;
+}
+}
+
+/* Hearts */
+
+.floating-heart{
+position:fixed;
+bottom:-20px;
+font-size:24px;
+animation:heartFloat 5s linear forwards;
+pointer-events:none;
+}
+
+@keyframes heartFloat{
+from{
+transform:translateY(0);
+opacity:1;
+}
+to{
+transform:translateY(-700px);
+opacity:0;
+}
+}
+
+/* Confetti */
+
+.confetti{
+position:absolute;
+width:10px;
+height:10px;
+top:-10px;
+animation:fall linear infinite;
+}
+
+@keyframes fall{
+to{
+transform:translateY(120vh) rotate(720deg);
+}
+}
+
+/* Popup */
+
+.popup{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+
+background:rgba(0,0,0,.85);
+
+justify-content:center;
+align-items:center;
+
+z-index:9999;
+}
+
+.popup-content{
+background:white;
+color:black;
+
+width:90%;
+max-width:600px;
+max-height:80vh;
+
+overflow-y:auto;
+
+padding:30px;
+border-radius:20px;
+
+animation:popupShow .4s ease;
+}
+
+@keyframes popupShow{
+from{
+opacity:0;
+transform:scale(.7);
+}
+to{
+opacity:1;
+transform:scale(1);
+}
+}
+
+.close{
+float:right;
+font-size:30px;
+cursor:pointer;
+font-weight:bold;
+}
+
+.popup-content h2{
+margin-bottom:20px;
+text-align:center;
+}
+
+.popup-content p{
+font-size:16px;
+line-height:1.8;
+color:#333;
+}
+
+/* Mobile */
+
+@media(max-width:480px){
+
+.card{
+padding:20px;
+}
+
+h1{
+font-size:1.7rem;
+}
+
+p{
+font-size:14px;
+}
+
+.countdown{
+font-size:16px;
+}
+
+.heart{
+font-size:55px;
+}
+}
+</style>
+</head>
+
+<body>
+
+<div class="balloon b1"></div>
+<div class="balloon b2"></div>
+<div class="balloon b3"></div>
+<div class="balloon b4"></div>
+
+<div class="card">
+
+<div class="heart">❤️</div>
+
+<h1 id="typing"></h1>
+
+<div id="countdown" class="countdown"></div>
+
+<p>
+And when it comes to my birthday, you made me feel so happy after a long time. You took care of me, bought me the things I liked, and did so many things just to see me happy. You made me feel special, loved, and cared for in a way I will never forget. It wasn't just about the things you bought me; it was about your effort, your care, and the happiness you wanted me to feel. Thank you for making my birthday so memorable, baby. I truly appreciate everything you did for me, and I hope I can make you feel just as special and loved. ❤️🫶🏻<br><br>
+
+I believe in us, and I believe in the future we can build together. I want you to achieve all your dreams and become the person you wish to be. I want to achieve my dreams too, and I hope we can motivate each other, support each other, and grow together. I want to celebrate your happiness as if it were mine and stand beside you when things don't go as planned. I know life won't always be easy, but I hope we will have the patience to understand each other and the strength to face difficulties together. I want us to become successful in our own lives while continuing to be each other's biggest supporters. ❤️✨<br>
+
+Honestly, I wish we could stay like this for our whole life. I want us to keep fighting over silly things, teasing each other for no reason, laughing at our stupid jokes, caring about each other, and sharing every little thing. I want us to look back at these days someday and laugh about how childish and silly we were. Even when we grow older, I hope we never lose this beautiful bond we have today. I don't expect everything to be perfect between us, but I hope we always choose love, patience, trust, and understanding. ❤️♾️<br>
+
+And baby, if I have ever made any mistakes or hurt you knowingly or unknowingly, I am truly sorry. If my words or actions have ever made you feel bad, please forgive me. I know I may not always understand everything perfectly, and sometimes I might irritate you more than I should. 😂 But I never want my mistakes, our small fights, or our misunderstandings to become reasons for us to lose the beautiful bond we share. I will try my best to understand you better, listen to you, and become a better person for myself and for us. You are important to me, and our relationship is something I genuinely want to protect. ❤️🫂<br>
+
+On your special day, I wish you endless happiness, good health, success, peace of mind, and all the beautiful things your heart desires. May every dream you work towards slowly become a reality. May you always have reasons to smile, the courage to overcome difficulties, and the confidence to believe in yourself even when things get hard. Never stop believing in your abilities, because I truly want to see you succeed in everything you do. I hope that, through every stage of your life, I will be there cheering for you, celebrating your achievements, comforting you on difficult days, and reminding you how special you are. ❤️🎂<br>
+
+But there is one thing making me really sad today. I can't be with you on your birthday, and I am genuinely sorry for that, my love. 🥺❤️ I wish I could be there beside you, see your beautiful smile, spend time with you, make you feel special, and give you the biggest, tightest hug. I wish I could look into your eyes and tell you in person how much you mean to me. Please forgive me for not being able to come, baby. I really wish things were different. Even though I cannot be physically beside you today, please remember that you are always in my heart and that I am thinking of you with so much love. I hope you understand me and don't feel that I care any less just because I cannot be there. If I could, I would love to make this day even more beautiful for you. I'm really sorry, my love. I miss you so much. 🥹❤️🫂😘<br>
+
+Finally, I just want to say that no matter how much we fight, tease, irritate, or annoy each other, you will always remain one of the most special people in my life. You are my favourite person, my best friend, my brother, my comfort, and my everything. I hope our bond remains beautiful for a lifetime, and I hope we continue making countless memories together.<br>
+
+Happy Birthday once again, my love! 🎂💗 May this new year of your life bring you closer to every dream you have. Keep smiling, keep growing, and never forget how much you mean to me.<br>
+
+Let's stay like this forever — fighting, teasing, laughing, caring, forgiving, supporting, and loving each other in our own silly way. Whatever life brings us, I hope we always find our way back to each other and never stop choosing this bond we share.<br>
+
+I love you jii, and I miss you more than words can say. <br>Happy Birthday , my favourite person, my best friend, my brother, and my everything! ❤️😘🫶🏻♾️
+</p>
+
+<button onclick="showMessage()">
+🎁 Open Your Gift
+</button>
+
+<button onclick="openLetter()">
+💌 Read My Letter
+</button>
+
+<div class="message" id="message"></div>
+
+<div class="cake">🎂</div>
+
+</div>
+
+<!-- Love Letter Popup -->
+
+<div id="letterPopup" class="popup">
+
+<div class="popup-content">
+
+<span class="close" onclick="closeLetter()">&times;</span>
+
+<h2>💌 My Letter To You</h2>
+
+<p>
+Happy Birthday My Love ❤️
+
+<br><br>
+
+Thank you for being my happiness,
+my comfort,
+my best friend,
+and my favourite person.
+
+<br><br>
+
+Every moment with you becomes a beautiful memory.
+
+I am grateful for every laugh,
+every conversation,
+and every moment we share.
+
+<br><br>
+
+I hope this special day brings you
+everything your heart wishes for.
+
+May your future be filled with
+success,
+peace,
+love and happiness.
+
+<br><br>
+
+Forever Yours ❤️
+</p>
+
+</div>
+</div>
+
+<script>
+
+/* Typewriter */
+
+const text = "Happy Birthday My Love ❤️";
+
+let i = 0;
+
+function typeWriter(){
+
+if(i < text.length){
+
+document.getElementById("typing").innerHTML += text.charAt(i);
+
+i++;
+
+setTimeout(typeWriter,100);
+}
+}
+
+typeWriter();
+
+/* Countdown */
+
+const birthdayDate =
+new Date("2026-10-27T00:00:00").getTime();
+
+setInterval(() => {
+
+const now = new Date().getTime();
+
+const distance = birthdayDate - now;
+
+if(distance > 0){
+
+const days =
+Math.floor(distance/(1000*60*60*24));
+
+const hours =
+Math.floor((distance%(1000*60*60*24))/(1000*60*60));
+
+const minutes =
+Math.floor((distance%(1000*60*60))/(1000*60));
+
+const seconds =
+Math.floor((distance%(1000*60))/1000);
+
+document.getElementById("countdown").innerHTML =
+`🎂 ${days} Days ${hours} Hours ${minutes} Minutes ${seconds} Seconds`;
+
+}else{
+
+document.getElementById("countdown").innerHTML =
+"🎉 Happy Birthday My Love ❤️";
+
+}
+
+},1000);
+
+/* Gift Message */
+
+function showMessage(){
+
+document.getElementById("message").innerHTML =
+"💖 You are my favourite person, my safe place, and my biggest happiness. I love you endlessly! 💖";
+
+}
+
+/* Letter Popup */
+
+function openLetter(){
+document.getElementById("letterPopup").style.display="flex";
+}
+
+function closeLetter(){
+document.getElementById("letterPopup").style.display="none";
+}
+
+/* Stars */
+
+for(let i=0;i<80;i++){
+
+let star=document.createElement("div");
+
+star.classList.add("star");
+
+star.style.left=Math.random()*100+"vw";
+
+star.style.top=Math.random()*100+"vh";
+
+document.body.appendChild(star);
+
+}
+
+/* Hearts */
+
+setInterval(()=>{
+
+let heart=document.createElement("div");
+
+heart.innerHTML="❤️";
+
+heart.classList.add("floating-heart");
+
+heart.style.left=Math.random()*100+"vw";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},5000);
+
+},700);
+
+/* Confetti */
+
+const colors=[
+"#ffffff",
+"#d9d9d9",
+"#999999",
+"#666666",
+"#000000"
+];
+
+for(let i=0;i<150;i++){
+
+let confetti=document.createElement("div");
+
+confetti.classList.add("confetti");
+
+confetti.style.left=Math.random()*100+"vw";
+
+confetti.style.background=
+colors[Math.floor(Math.random()*colors.length)];
+
+confetti.style.animationDuration=
+(Math.random()*3+2)+"s";
+
+document.body.appendChild(confetti);
+
+}
+
+</script>
+
+</body>
+</html>
